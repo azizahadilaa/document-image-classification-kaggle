@@ -1,0 +1,21 @@
+# Data & checkpoint (tidak boleh di-commit)
+data/*
+checkpoint/*
+!data/.gitkeep
+!checkpoint/.gitkeep
+cache/
+*.pt
+*.pth
+*.zip
+
+# Cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Environment
+venv/
+.env
+
+# OS
+.DS_Store
