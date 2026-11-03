@@ -81,3 +81,21 @@ def plot_confusion_matrix(y_true, y_pred, class_names, save_path: str = None) ->
     if save_path:
         plt.savefig(save_path, dpi=150)
     plt.show()
+
+def resolve_path(data_dir: str, filename: str) -> str:
+    """Cari path gambar yang valid, menangani folder ganda (mis. train/train/...).
+
+    Args:
+        data_dir: Folder dasar data kompetisi.
+        filename: Path relatif pada kolom 'filename' di CSV.
+
+    Returns:
+        Path file yang ada; jika tidak ditemukan, path langsung (akan memicu error saat dibuka).
+    """
+    direct = os.path.join(data_dir, filename)
+    if os.path.exists(direct):
+        return direct
+    nested = os.path.join(data_dir, filename.split("/")[0], filename)
+    if os.path.exists(nested):
+        return nested
+    return direct
