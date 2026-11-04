@@ -3,7 +3,7 @@ import timm
 import torch.nn as nn
 
 
-def build_model(name: str = "convnext_tiny", num_classes: int = 16,
+   def build_model(name: str = "efficientnet_b3", num_classes: int = 16,
                 pretrained: bool = True, drop_rate: float = 0.2,
                 drop_path_rate: float = 0.1) -> nn.Module:
     """Buat model klasifikasi dengan backbone pretrained.
